@@ -1,4 +1,5 @@
 import './App.css';
+import './fonts.css';
 
 // React Router
 import {
@@ -19,9 +20,19 @@ import RegisterScreen from './screens/RegisterScreen';
 import EditScreen from './screens/EditScreen';
 import BrowseScreen from './screens/BrowseScreen';
 
+
+// Firebase
+
+
+
 function App() {
+
+  let appStyle = {
+    fontFamily: "Raleway, sans-serif"
+  }    
+
   return (
-    <div className="App">
+    <div className="App" style={appStyle}>
       <h1>VerseVS</h1>
       <Router>
         <TestNavBar />
