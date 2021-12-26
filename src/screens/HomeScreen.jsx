@@ -157,7 +157,7 @@ function HomeScreen() {
                     Free Verse
                     </b></p>
                     <p style={sectionContentStyle}>
-                    Last but not least, there's free poetry which lacks a consistent rhyme scheme, metrical pattern, or musical form. It's your opportunity to leave behind any of the rules and compose a poem that's uniquely yours.
+                    Free poetry lacks a consistent rhyme scheme, metrical pattern, or musical form. It's your opportunity to leave behind any of the rules and compose a poem that's uniquely yours.
                     </p>
                     <p style={sectionContentStyle}><b>
                     Haiku
