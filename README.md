@@ -1,6 +1,6 @@
 # verseVS
 
-[verse-vs.com](verse-vs.com)
+[verse-vs.com](https://verse-vs.web.app/home)
 
 ## What is verseVS?
 
