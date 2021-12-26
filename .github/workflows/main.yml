@@ -17,4 +17,4 @@ jobs:
       - uses: Adzz/jest_test_action@v1.0.0
         with:
           package-manager: npm
-          command: deploy
+          command: run deploy
