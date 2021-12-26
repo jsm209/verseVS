@@ -36,3 +36,34 @@
     transform: rotate(360deg);
   }
 }
+
+
+.sectionStyleWhite {
+  color: #000000;
+  background-color: #FFFFFF;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.sectionStyleBlack {
+  color: #FFFFFF;
+  background-color: #000000;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.contentContainerStyle {
+  width: 50%;
+  margin: auto;
+}
+
+.contentContainerStyleFixed {
+  width: 600px;
+  margin: auto;
+}
+
+.headerFlexboxStyle {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}

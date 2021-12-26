@@ -24,6 +24,10 @@ function TestNavBar() {
             <Link to="/browse">
                 <p>To browse</p>
             </Link>
+
+            <Link to="/new">
+                <p>Write new poem</p>
+            </Link>
             
             <Link to="/edit">
                 <p>To edit</p>

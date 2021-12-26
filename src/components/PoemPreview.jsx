@@ -1,15 +1,16 @@
 import React from "react";
 import { fontSizes } from "../helpers/Constants";
+import { Link } from "react-router-dom";
 
 // Given a Poem object as a prop
 function PoemPreview(props) {
 
     let cardStyle = {
         width: "600px",
-        height: "100px",
+        height: "150px",
         borderRadius: "8px",
         boxShadow: "2px 2px 2px #9E9E9E",
-        backgroundColor: "#F0EAD6",
+        backgroundColor: "#fffafa",
         display: "flex",
         flexDirection: "column",
         flexWrap: "nowrap",
@@ -21,7 +22,7 @@ function PoemPreview(props) {
     let titleStyle = {
         fontSize: fontSizes.large,
         textAlign: "left",
-        paddingLeft: "20px",
+        paddingLeft: "15px",
         paddingRight: "20px",
         margin: "5px"
     }
@@ -29,8 +30,15 @@ function PoemPreview(props) {
     let subtitleStyle = {
         fontSize: fontSizes.small,
         paddingLeft: "20px",
+        paddingRight: "20px"
+    }
+
+    let subtitleEditStyle = {
+        fontSize: fontSizes.small,
+        paddingLeft: "20px",
         paddingRight: "20px",
-        margin: "5px"
+        margin: "5px",
+        textAlign: "right"
     }
 
     let subtitleFlexbox = {
@@ -38,6 +46,10 @@ function PoemPreview(props) {
         flexDirection: "row",
         flexWrap: "nowrap",
         justifyContent: "flexStart"
+    }
+
+    let bold = {
+        fontWeight: "bold"
     }
 
     function formatTitle(title, charLimit) {
@@ -48,19 +60,33 @@ function PoemPreview(props) {
         }
     }
 
+    function formatDate(dateTime) {
+
+        let d = new Date(dateTime);
+        let dateString = "";
+
+        dateString = d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear() + " at " + d.getHours() + ":" + d.getMinutes();
+
+        return dateString;
+    }
+
     return(
         <div style={cardStyle}>
+            <Link to="/view" state={props.poem} style={{ color: 'inherit', textDecoration: 'inherit'}}>
                 <p style={titleStyle}>{formatTitle(props.poem.title, 50)}</p>
                 <div style={subtitleFlexbox}>
-                    <p style={subtitleStyle}>Created by {props.poem.author}</p>
-                    <p style={subtitleStyle}>Last contributed to by {props.poem.lastModifiedBy}</p>
+                    <p style={subtitleStyle}>Created by <span style={bold}>{props.poem.author}</span></p>
+                    <p style={subtitleStyle}>Last contributed to by <span style={bold}>{props.poem.lastModifiedBy}</span></p>
+                    <p style={subtitleStyle}>Contributors {props.poem.contributors.length}</p>
                 </div>
                 <div style={subtitleFlexbox}>
-                    <p style={subtitleStyle}>Number of Lines: {props.poem.lines.length}</p>
-                    <p style={subtitleStyle}>Created: {props.poem.dateCreated}</p>
-                    <p style={subtitleStyle}>Last Modified: {props.poem.lastModified}</p>
+                    <p style={subtitleStyle}>Created: {formatDate(props.poem.dateCreated)}</p>
+                    <p style={subtitleStyle}>Last Modified: {formatDate(props.poem.lastModified)}</p>
                 </div>
-
+            </Link>
+            <Link to="/edit" state={props.poem}>
+                <p style={subtitleEditStyle}>Edit poem</p>
+            </Link>
         </div>
     )
 }

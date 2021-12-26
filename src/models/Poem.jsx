@@ -10,20 +10,22 @@ function Poem(
     title = "",
     author = "",
     isEditable = false,
-    lines = [""]
+    content = ""
 ) {
 
     let date = new Date();
+    let id = uuidv4();
 
     return {
-        id: uuidv4(),
+        id: id,
         title: title,
         dateCreated: date.getTime(),
         lastModified: date.getTime(),
         author: author,
-        lastModifiedBy: "",
+        lastModifiedBy: author,
         isEditable: isEditable,
-        lines: lines
+        content: content,
+        contributors: []
     }
 }
 

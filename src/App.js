@@ -1,5 +1,11 @@
+
+
 import './App.css';
 import './fonts.css';
+
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 // React Router
 import {
@@ -9,34 +15,31 @@ import {
 } from "react-router-dom";
 
 
-// Components
-import TestNavBar from './components/TestNavBar';
-
-
 // Screens
 import HomeScreen from './screens/HomeScreen';
 import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import EditScreen from './screens/EditScreen';
 import BrowseScreen from './screens/BrowseScreen';
-
-
-// Firebase
-
+import NewPoemScreen from './screens/NewPoemScreen';
+import ViewPoemScreen from './screens/ViewPoemScreen';
+import ChangelogScreen from './screens/ChangelogScreen';
 
 
 function App() {
 
-  let appStyle = {
-    fontFamily: "Raleway, sans-serif"
-  }    
+  let footerStyle = {
+    paddingTop: "60px",
+    paddingBottom: "60px"
+  }
 
   return (
-    <div className="App" style={appStyle}>
-      <h1>VerseVS</h1>
+    <div className="App">
       <Router>
-        <TestNavBar />
+        {/*<TestNavBar />*/}
         <Routes>
+          <Route path="/" element={<HomeScreen />}>
+          </Route>
           <Route path="/home" element={<HomeScreen />}>
           </Route>
           <Route path="/register" element={<RegisterScreen />}>
@@ -47,8 +50,20 @@ function App() {
           </Route>
           <Route path="/edit" element={<EditScreen />}>
           </Route>
+          <Route path="/new" element={<NewPoemScreen />}>
+          </Route>
+          <Route path="/view" element={<ViewPoemScreen />}>
+          </Route>
+          <Route path="/changelog" element={<ChangelogScreen />}>
+          </Route>
         </Routes>
       </Router>
+
+      <div style={footerStyle}>
+        <p>verse-vs.com is designed by Joshua Maza, Hannah Maza, and John Maza 2021</p>
+        <p>© Joshua Maza. All rights reserved.</p>
+      </div>
+
       
     </div>
   );
